@@ -126,7 +126,7 @@ CREATE TABLE `users` (
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -136,9 +136,9 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`role_id`,`name`,`email`,`username`,`password`,`remember_token`,`photo`,`created_at`,`updated_at`) values 
+insert  into `users`(`id`,`role_id`,`name`,`email`,`username`,`password`,`remember_token`,`avatar`,`created_at`,`updated_at`) values 
 (1,1,'admin',NULL,'admin','$2y$10$EiPl66D6EX5Q9zzQC/eySuj1O6sdEjK8jzV2XkIWcPmu8dICeYRvK','02sYd6joSGF0WKjRG6lAWrsJZoDIbe6KHUM7jZ8oBXkvHhiX4lTDTNfUf5kG',NULL,'2018-10-31 04:37:56','2018-10-31 04:37:56'),
-(2,2,'pemilik usaha',NULL,'pemilikusaha','$2y$10$RUELuFDwvuRrNVR3tKZhLeF9FLc5o/Lf0SXLDqxP7KiZXxUeJZ0ha','JotLttOPHGYUUbGmIhzNZYG4B04HEo6ACNpDVLsHPSq78vrB36KszKy17xFS',NULL,'2018-10-31 04:38:33','2018-10-31 04:38:33'),
+(2,2,'pemilik usaha','dharma.bekti16696@gmail.com','pemilikusaha','$2y$10$RPBF2G5Kv8yPB5Luvs4Yuee1pzFV7CZfW9x3kbHtp97zxgZGXXC96','wRj6jrmEW19pmuMEjAKrWmpuMaGjPIlNxkLUvOBv9D7T7T6h8RvWWoOSHlJs','1541036885.png','2018-10-31 04:38:33','2018-11-01 01:54:40'),
 (3,3,'donatur',NULL,'donatur','$2y$10$orNvsgvRoyjJrJDp9sje2..vEjSfB69SdMbEwIZYxrUXwhWoRVAb6','sSZHa4k5csKPzLLhdxxbf0dQwkiNZ2fIfv4XTYeUJqZIVVSuJ2BZK0IOPgPj',NULL,'2018-10-31 04:38:54','2018-10-31 04:38:54');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
