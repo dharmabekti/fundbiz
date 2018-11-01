@@ -19,8 +19,9 @@ Route::get('/about', function (){
 
 Route::get('/insert', 'ProdukController@getProduk');
 Route::get('/donate/{id}', 'DonateController@getDonasi');
- Route::get('/destroy/{id_produk}', 'ProdukController@deleteProduk');
-  Route::get('/update/{id_produk}', 'ProdukController@editProduk');
+Route::get('/destroy/{id_produk}', 'ProdukController@deleteProduk');
+Route::get('/update/{id_produk}', 'ProdukController@editProduk');
+Route::get('/approved/{id_produk}', 'ProdukController@approveProduk');
   
 
 Route::prefix('pages')->group(function (){
@@ -76,6 +77,16 @@ Route::group(['prefix' => 'produk'], function(){
 //     Route::get('/show', 'HomeController@index');
 //     Route::get('/update', 'ProdukController@editProduk');
 //     Route::post('/update', 'ProdukController@updateProduk');
+});
+
+Route::group(['prefix' => 'pemilikusaha'], function(){
+    Route::get('/', 'PemilikusahaController@index');
+    Route::get('/destroy/{id}', 'PemilikusahaController@hapusPemilikUsaha');
+});
+
+Route::group(['prefix' => 'mitra'], function(){
+    Route::get('/', 'MitraController@index');
+    Route::get('/destroy/{id}', 'MitraController@hapusMitra');
 });
 
 

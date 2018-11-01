@@ -97,10 +97,12 @@
 					<h3>{{ $produk->nama_produk }}</h3>
 					<h5>{{ $produk->dana }}</h5>
 					<div class="available">
-						<!-- <div class="top_main">
+						@if(Auth::user()->role_id==3)
+						<div class="top_main">
 				            <a href="{{ url('donate') }}/{{ $produk->id_produk }}" >Donate</a>
 				            <div class="clear"></div>
-				        </div> -->
+				        </div>
+				        @endif
 
 
 						<p>{{ $produk->deskripsi_produk }}</p>

@@ -14,14 +14,13 @@
                         @else
                              <li class="dropdown">
                                 <a href="{{ url('/Detailaccount') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
-                                <img src="{{ asset('images/uploads/users/' . Auth::user()->avatar) }}"
-                                style="width:32px; height: 32px; position:absolute; top:1px ;left:10px; border-radius: 50%"
-                                    >
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                @if(Auth::user()->avatar)
+                                    <img src="{{ asset('images/uploads/users/' . Auth::user()->avatar) }}" style="width:32px; height: 32px; position:absolute; top:1px ;left:10px; border-radius: 50%" >
+                                @else
+                                    <img src="{{ asset('images/uploads/default.jpg') }}" style="width:32px; height: 32px; position:absolute; top:1px ;left:10px; border-radius: 50%" >
+                                @endif
+                                {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
-                            
-                                 
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -56,20 +55,28 @@
             <div class="menu">
                 <ul>
                     @if (Auth::guest())
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/products') }}">Product</a></li>
-                    <li><a href="{{ url('/about') }}">About</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/products') }}">Product</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
+                    @elseif (Auth::user()->role_id == 1)
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/products') }}">Product</a></li>
+                        <li><a href="{{ url('/pemilikusaha') }}">Manage Pemilik Usaha</a></li>
+                        <li><a href="{{ url('/mitra') }}">Manage Mitra</a></li>
+                        <li><a href="{{ url('/Detailaccount') }}">Manage Account</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
                     @elseif (Auth::user()->role_id == 2)
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/products') }}">Product</a></li>
-                    <li><a href="{{ url('/insert') }}">Manage Products</a></li>
-                    <li><a href="{{ url('/umkm/show') }}">Manage UMKM</a></li>
- <li><a href="{{ url('/Detailaccount') }}">Manage Account</a></li>
-                    <li><a href="{{ url('/about') }}">About</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/products') }}">Product</a></li>
+                        <li><a href="{{ url('/insert') }}">Manage Products</a></li>
+                        <li><a href="{{ url('/umkm/show') }}">Manage UMKM</a></li>
+                        <li><a href="{{ url('/Detailaccount') }}">Manage Account</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
                     @else
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/products') }}">Product</a></li>
-                    <li><a href="{{ url('/about') }}">About</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/products') }}">Product</a></li>
+                        <li><a href="{{ url('/Detailaccount') }}">Manage Account</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
                     @endif
                     <div class="clear"></div>
                 </ul>

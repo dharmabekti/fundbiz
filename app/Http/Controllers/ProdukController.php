@@ -67,7 +67,12 @@ class ProdukController extends Controller
 
     public function showProduk()
     {
-        $produks = Produk::orderBy('id_produk')->where('status','Approved')->simplePaginate(100);
+        if(Auth::user()->role_id == 2) // Role Pemilik Usaha
+            $produks = Produk::orderBy('id_produk')->where('status','Approved')->where('user_id',Auth::user()->id)->simplePaginate(100);
+        else if(Auth::user()->role_id == 3) // Role Mitra
+            $produks = Produk::orderBy('id_produk')->where('status','Approved')->simplePaginate(100);
+        else
+            $produks = Produk::orderBy('id_produk')->where('status','Waiting')->simplePaginate(100);
         return view('pages.products',compact('produks'));  
     }
 
@@ -78,15 +83,25 @@ class ProdukController extends Controller
         return redirect('/products');
     }
 
-     public function editProduk($id_produk)
+    public function approveProduk($id_produk)
     {
         
         $produks = Produk::find($id_produk);
 
         if ($produks != null) {
+            $produks->status = 'Approved';
+            $produks->save();
+        }
+        
+        return redirect('/');
+    }
 
-           
+    public function editProduk($id_produk)
+    {
+        
+        $produks = Produk::find($id_produk);
 
+        if ($produks != null) {
             return view('pages.updateproduk', compact('produks'));
         }
         
