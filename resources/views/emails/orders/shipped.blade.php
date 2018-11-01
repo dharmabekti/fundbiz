@@ -1,14 +1,11 @@
 @component('mail::message')
 # Pemberitahuan Donasi
 
- **Donasi** Anda berhasil Dikirim
+ **Donasi** Anda Mendapat Donasi dari {!! $donator->name !!} sebesar Rp. {!! number_format($data_donator['amount'],0,',','.')!!}
+ <br>
+ Anda harus mengembalikan pinjaman sebesar Rp. {!! number_format($data_donator['amount'] + (0.05*$data_donator['amount']),0,',','.')!!}
 
-
-@component('mail::button', ['url' => 'http://127.0.0.1:8000'])
-Kunjungi Web
-@endcomponent
-
-Thanks,  <br>
+Terima Kasih,  <br>
 {{ config('app.name')}}
 
 @endcomponent

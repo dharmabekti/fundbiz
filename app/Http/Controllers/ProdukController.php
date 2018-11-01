@@ -68,7 +68,7 @@ class ProdukController extends Controller
     public function showProduk()
     {
         if(Auth::user()->role_id == 2) // Role Pemilik Usaha
-            $produks = Produk::orderBy('id_produk')->where('status','Approved')->where('user_id',Auth::user()->id)->simplePaginate(100);
+            $produks = Produk::orderBy('id_produk')->where('user_id',Auth::user()->id)->simplePaginate(100);
         else if(Auth::user()->role_id == 3) // Role Mitra
             $produks = Produk::orderBy('id_produk')->where('status','Approved')->simplePaginate(100);
         else

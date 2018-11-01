@@ -31,14 +31,21 @@ class DonateController extends Controller
         $post->user_id = Auth::user()->id;
         $post->product_id = $id;
         $post->amount = $request['amount'];
-         $post->email_penerima = $request['email_penerima'];
-        $post->date = $request['date'];
-        $post->status = 'Donate';      
-        
-        $post->save();
-        Mail::to($post->email_penerima)->send(new DonateShipped());
+        $post->email_penerima = $produk->users[0]->email;
 
-        return redirect('/');
+        $data = array(
+            'amount' => $post->amount,
+            'product_id' => $post->product_id
+        );
+        if(!empty($post->email_penerima))
+        {
+            $post->save();
+            $message = "Donasi Terkirim";
+            Mail::to($post->email_penerima)->send(new DonateShipped($data));
+        }
+        else $message = "Tidak Bisa Melakukan Donasi karena Data Pemilik Usaha Belum Lengkap";
+
+        return redirect('donate/' . $id)->with('message', $message);
     }
 
     public function viewDonasi()

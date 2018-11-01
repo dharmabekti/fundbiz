@@ -18,4 +18,8 @@ class Produk extends Model
 	    {
 	        return 'slug';
 	    }
+
+	public function users(){
+    	return $this->hasMany('App\User','id','user_id');
+    }
 }

@@ -27,11 +27,11 @@ SUDAH:
 - edit delete produk
 - menonaktifkan role donatur dan pemilik usaha yang bermasalah.
 - admin itu tugasnya melakukan persetujuan dari pihak pemilik usaha yg mengajukan kebutuhan dana nanti kalau udah diapproved atau disetujui baru muncul di website.
-
-
-
-BELUM:
 - manage umkm isini pemberitahuan nek wes entuk pinjaman dana seko mitra
 - tombol "donate" itu belum ke hidden harusnya itu tombol kan buat role donatur / mitra bukan buat pemilik usaha
 - pas dapet notif kalo dapet donasi, nah ngasih hitungan ke pihak pemilik usaha jumlah uang yang harus dikembaliin ke mitra tu = modal awal * 5%
 - nanti pas dia donasi kan muncul email tuh nah dipihak pemilik usaha dapet notifikasi kalau mitra ini sudah memberikan pinjaman.
+
+
+
+BELUM:

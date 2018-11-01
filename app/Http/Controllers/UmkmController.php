@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Umkm;
 use Illuminate\Support\Facades\Auth;
 use Image;
+use App\Donate;
 
 
 class UmkmController extends Controller
@@ -49,8 +50,10 @@ class UmkmController extends Controller
         try {
 
             $id = Auth::user()->id;
-            $umkm = Umkm::where('id_pengguna', '=', $id)->first();
-            return view('pages.umkm', compact('umkm'));
+            //$umkm = Umkm::where('id_pengguna', '=', $id)->first();
+            //return view('pages.umkm', compact('umkm'));
+            $donatur = Donate::orderby('id','DESC')->simplePaginate(100);;
+            return view('pages.tampildonasi', compact('donatur'));
             
         } catch (ModelNotFound $ex) {
             return redirect('/');

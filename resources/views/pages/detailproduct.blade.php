@@ -95,13 +95,15 @@
 			<div class="span1_of_1_des">
 				  <div class="desc1">
 					<h3>{{ $produk->nama_produk }}</h3>
-					<h5>{{ $produk->dana }}</h5>
+					<h5>{{ "Rp " . number_format($produk->dana,0,',','.') }}</h5>
 					<div class="available">
-						@if(Auth::user()->role_id==3)
-						<div class="top_main">
-				            <a href="{{ url('donate') }}/{{ $produk->id_produk }}" >Donate</a>
-				            <div class="clear"></div>
-				        </div>
+						@if(!Auth::guest())
+							@if(Auth::user()->role_id==3)
+							<div class="top_main">
+					            <a href="{{ url('donate') }}/{{ $produk->id_produk }}" >Donate</a>
+					            <div class="clear"></div>
+					        </div>
+					        @endif
 				        @endif
 
 

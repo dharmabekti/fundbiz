@@ -5,7 +5,10 @@
 @include('layouts.partials.nav')
 
 <!-- start main -->
-    <div class="main_bg">
+<div class="main_bg">
+    @if(session()->has('message'))
+        <script type="text/javascript">alert("{{ session()->get('message') }}");</script>
+    @endif
     <div class="wrap">
     <div class="main">
         <div class="contact-form">
@@ -15,7 +18,7 @@
                 {{ csrf_field() }}
 
                  <h4 class="share-desc">Your Email Address :</h4>
-                <input type="text" name="email_penerima" id="email_penerima" required="required" class="form"   />    
+                <input type="text" name="email_penerima" id="email_penerima" required="required" class="form" value="{{ Auth::user()->email}}"  />    
 
                 <h4 class="share-desc">Product Name :</h4>
                 <input type="text" name="name" id="name" required="required" class="form" placeholder="{{ $produk->nama_produk }}" readonly />          
@@ -36,6 +39,6 @@
         </div><!-- End Contact Form Area -->
     </div>
     </div>
-    </div>
+</div>
     
     
