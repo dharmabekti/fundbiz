@@ -1459,7 +1459,7 @@ ul.news li .desc h4 a:hover{
 	line-height: 1.5em;
 	font-size: 0.8725em;
 }
-.contact-form input[type="text"],.contact-form textarea{
+.contact-form input[type="text"],.contact-form textarea, .contact-form input[type="password"], .contact-form input[type="file"]{
 	font-family: 'Maven Pro', sans-serif;
 	padding: 10px;
 	display: block;

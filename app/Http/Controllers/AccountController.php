@@ -74,14 +74,15 @@ class AccountController extends Controller
                 $post->name= $request['name'];
                 $post->username = $request['username'];
                 $post->password = bcrypt($request['password']);
+                $post->email = $request['email'];
                 if($request->hasFile('avatar')){
-            $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save (public_path('images/uploads/' . $filename));
-            $user =Auth::user();
-            $user->avatar = $filename;
-            $user->save();
-        }
+                    $avatar = $request->file('avatar');
+                    $filename = time() . '.' . $avatar->getClientOriginalExtension();
+                    Image::make($avatar)->resize(300,300)->save (public_path('images/uploads/users/' . $filename));
+                    $user =Auth::user();
+                    $user->avatar = $filename;
+                    $user->save();
+                }
                 $post->save();
                 
                 return redirect('/Detailaccount');

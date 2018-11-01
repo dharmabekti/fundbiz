@@ -15,7 +15,7 @@
        <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-           <img src="images/uploads/{{ Auth::user()->photo }}" style=" width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+           <img src="images/uploads/users/{{ Auth::user()->avatar }}" style=" width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
            
             </div>
         </div>
