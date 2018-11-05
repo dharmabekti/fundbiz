@@ -25,7 +25,7 @@
             @endif
             <ul class="actions">
                 <h3><a href="">{{ $data->name }}</a></h3>
-                <li><a href="{{ URL('pemilikusaha/destroy') }}/{{ $data->id}}" class="btn" onclick="return confirm('AApakah Ingin Menghapus Pemilik Usaha?');">Hapus</a></li>
+                <li><a href="{{ URL('pemilikusaha/destroy') }}/{{ $data->id}}" class="btn" onclick="return confirm('Apakah Ingin Menghapus Pemilik Usaha?');">Hapus</a></li>
             </ul>
         </div>
         @endforeach

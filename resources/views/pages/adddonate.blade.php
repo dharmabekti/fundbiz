@@ -26,7 +26,7 @@
                 <input type="text" name="subject" id="subject" required="required" class="form" placeholder="{{ $produk->dana }}" readonly/>
                 
                 <h4 class="share-desc">Donate :</h4>
-                <input type="text" name="amount" id="amount" required="required" class="form" placeholder="Jumlah Donasi" />
+                <input type="text" name="amount" id="amount" required="required" class="form" placeholder="Jumlah Donasi" value="{{ $produk->dana }}" />
                 </div><!-- End Right Inputs -->
                 <!-- Bottom Submit -->
                 <div class="relative fullwidth col-xs-12">

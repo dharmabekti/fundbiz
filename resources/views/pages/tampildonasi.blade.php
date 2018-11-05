@@ -11,6 +11,7 @@
                 <h2 class="style" align="center">Peminjaman dari Dontur</h2>
                 <hr>
                 @foreach($donatur as $data)
+                    @if($data->products[0]->user_id == Auth::user()->id)
                     <table width="100%;">
                         <tr>
                             <td>Nama Donatur</td>
@@ -42,6 +43,7 @@
                         </tr>
                     </table>
                     <hr>
+                    @endif
                 @endforeach
             </div>
         </div>

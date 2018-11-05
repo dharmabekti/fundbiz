@@ -58,7 +58,11 @@
                         <div class="form-group">
     <label for="exampleInputEmail">Dana yang Dibutuhkan</label>
                             <input type="text" class="form-control" name="dana" id="dana" value="{{$produks->dana}}" placeholder=" Masukkan Dana Yang Dibutuhkan Produk">
-                        </div>  
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail">Waktu Peminjaman (bulan)</label>
+                            <input type="number" min="1" max="24" class="form-control" name="waktu_pinjam" id="waktu_pinjam" placeholder=" Masukkan Waktu Peminjaman" value="{{$produks->waktu_pinjam}}">
+                        </div>   
                        
                     </div>
                     <div class="col-md-6">

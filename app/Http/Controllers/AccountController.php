@@ -73,7 +73,11 @@ class AccountController extends Controller
                 $post->id = Auth::user()->id;
                 $post->name= $request['name'];
                 $post->username = $request['username'];
-                $post->password = bcrypt($request['password']);
+
+                if($request['password'] != "") {
+                    $post->password = bcrypt($request['password']);
+                }
+
                 $post->email = $request['email'];
                 if($request->hasFile('avatar')){
                     $avatar = $request->file('avatar');

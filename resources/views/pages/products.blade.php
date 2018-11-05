@@ -23,8 +23,9 @@
                 <h3><a href="{{ URL('produk/show') }}/{{ $produk->slug }}">{{ $produk->nama_produk }}</a></h3>
                 <span class="price">Baca..</span>
                 @if(Auth::user()->role_id==1)
-                <li><a href="{{ URL('/destroy') }}/{{ $produk->id_produk }}" class="icon">hapus</a></li>
-                <li><a href="{{ URL('/approved') }}/{{ $produk->id_produk}}" class="icon" onclick="alert('Yakin Ingin Approve Produk?')">Approve</a></li>
+                <li><a href="{{ URL('/update') }}/{{ $produk->id_produk }}" class="icon">Edit</a></li>
+                <li><a href="{{ URL('/destroy') }}/{{ $produk->id_produk }}" class="icon" onclick="return confirm('Apakah Ingin Menghapus Produk?');">Hapus</a></li>
+                <li><a href="{{ URL('/approved') }}/{{ $produk->id_produk}}" class="icon" onclick="return confirm('Apakah Ingin Approve Produk?');">Approve</a></li>
                 @endif
             </ul>
         </div>

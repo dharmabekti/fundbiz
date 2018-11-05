@@ -111,31 +111,25 @@ class ProdukController extends Controller
     public function updateProduk(Request $request, $id_produk)
     {
         try {
-
             $post =Produk::find($id_produk);
 
-            if ($post != null) {
-
-                           
-                    $post->nama_produk = $request->input('nama_produk');
-                    $post->dana = $request->input('dana');
-                    $post->deskripsi_produk = $request->input('deskripsi_produk');
-                   
-        //if($request->hasFile('picture'))
-      //  {
-        
-        //} 
-                    $file = $request->file('picture');
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            Image::make($file)->resize(351,176)->save (public_path('/images/' . $fileName));
-            $post->picture = $fileName; 
-        
-        
+            if ($post != null) {          
+                $post->nama_produk = $request->input('nama_produk');
+                $post->dana = $request->input('dana');
+                $post->deskripsi_produk = $request->input('deskripsi_produk');
+                $post->waktu_pinjam = $request['waktu_pinjam'];
                 
+                if($request->hasFile('picture'))
+                {
+                    $file = $request->file('picture');
+                    $fileName = time() . '.' . $file->getClientOriginalExtension();
+                    Image::make($file)->resize(351,176)->save (public_path('/images/' . $fileName));
+                    $post->picture = $fileName; 
+                }
+
                 $post->save();
                 
                 return redirect('/products');
-
             }
             
             return redirect('/login');
